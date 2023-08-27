@@ -35,6 +35,52 @@ app.py: The main Flask application file.
 3. encodings.npz: Pre-trained face encodings file.
 4. README.md: This documentation.
 
+**User Interaction  **                                    
+   +----------------+
+   | Web Browser    |     +------------------+
+   |                |<--> | Flask Web Server |
+   |                |     |                  |
+   +----------------+     +------------------+
+        |                     |           |
+        | Attendance          |           |
+        | Button Click        |           |
+        v                     v           |
+   +----------------+     +------------------+
+   | Mark Exit Time |<--> |   Flask Route    |
+   +----------------+     +------------------+
+                           |                |
+                           | Save to CSV     |
+                           v                |
+                  +-------------------+      |
+                  | Data Processing   |      |
+                  +-------------------+      |
+                           |                |
+                           v                |
+                  +-------------------+      |
+                  |   CSV Generation  |      |
+                  +-------------------+      |
+                           |                |
+                           v                |
+                 +----------------------+     |
+                 | CSV File Generation |     |
+                 +----------------------+     |
+
+**Explanation**
+In this workflow:
+
+1. The user interacts with the web application through a web browser.
+2. The user clicks the "Mark Exit Time" button on the web page to indicate that they are leaving the class.
+3. The web browser sends a request to the Flask web server.
+4. The Flask web server processes the request using the /mark_exit/<roll_number> route and marks the exit time for the student.
+5. After marking the exit time, the Flask route triggers the process to save the attendance data to a CSV file.
+6. The data processing component processes the attendance data, calculates duration and status, and prepares the data for CSV generation.
+7. The CSV generation component formats the attendance data into a CSV-friendly format.
+8. The CSV file generation component creates the actual CSV file containing the attendance data.
+9. The attendance data is saved in the CSV file, completing the process.
+
+This workflow demonstrates how the data is processed and saved in a CSV file after the user marks their exit time.
+
+
 **Contributing**
 
 Contributions are welcome! If you have ideas for improvements, please open an issue or submit a pull request.

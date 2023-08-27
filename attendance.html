@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Attendance</title>
+</head>
+<body>
+
+{% for name, times in attendance.items() %}
+    <p>{{ name }} - Entry: {{ times["entry"] }} Exit: {{ times.get("exit", "Not marked") }}</p>
+    {% if "exit" not in times %}
+        <button onclick="markExit('{{ name }}')">Mark Exit</button>
+    {% endif %}
+{% endfor %}
+
+<a href="/download_csv">Download CSV</a> <!-- Link to download CSV -->
+
+<script>
+    function markExit(name) {
+        fetch(`/mark_exit/${name}`)
+            .then(response => response.text())
+            .then(result => {
+                alert(result);
+                location.reload();
+            });
+    }
+</script>
+
+</body>
+</html>

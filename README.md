@@ -35,35 +35,9 @@ app.py: The main Flask application file.
 3. encodings.npz: Pre-trained face encodings file.
 4. README.md: This documentation.
 
-**User Interaction  **                                    
-   +----------------+
-   | Web Browser    |     +------------------+
-   |                |<--> | Flask Web Server |
-   |                |     |                  |
-   +----------------+     +------------------+
-        |                     |           |
-        | Attendance          |           |
-        | Button Click        |           |
-        v                     v           |
-   +----------------+     +------------------+
-   | Mark Exit Time |<--> |   Flask Route    |
-   +----------------+     +------------------+
-                           |                |
-                           | Save to CSV     |
-                           v                |
-                  +-------------------+      |
-                  | Data Processing   |      |
-                  +-------------------+      |
-                           |                |
-                           v                |
-                  +-------------------+      |
-                  |   CSV Generation  |      |
-                  +-------------------+      |
-                           |                |
-                           v                |
-                 +----------------------+     |
-                 | CSV File Generation |     |
-                 +----------------------+     |
+**User Interaction  ** 
+
+![image](https://github.com/Ayush-51/Minor-Project/assets/85790732/fe6a5481-e11e-431e-a44d-90b8fa047a99)
 
 **Explanation**
 In this workflow:

@@ -2,13 +2,13 @@
 
 This project demonstrates a Smart Attendance System using Face Recognition. The system captures video from the webcam, performs face recognition to identify individuals, and records their attendance in a CSV file.
 
-**## Features**
+## Features
 
 - Real-time face recognition using OpenCV and face_recognition library.
 - Attendance records are saved in a CSV file for easy management.
 - Web interface to view live video feed and download attendance records.
-**
-## Installation**
+  
+## Installation
 
 1. Clone this repository:
    ```bash

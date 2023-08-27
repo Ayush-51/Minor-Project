@@ -20,8 +20,7 @@ attendance = {}  # Use a dictionary to store entry, exit times, duration, and st
 # Dictionary mapping roll numbers to names
 roll_to_name = {
     "2029051": "Ayush Das",
-    "2029041": "Babloo Singh",
-    "2029050": "Avantika Giri",
+    "2029041": "Chandu Das",
     # Add more roll numbers and corresponding names
 }
 
@@ -96,8 +95,13 @@ def calculate_duration(entry_time, exit_time):
     duration = exit_datetime - entry_datetime
     return duration
 
+def generate_csv_filename():
+    today = datetime.date.today()
+    return f"attendance_{today}.csv"
+
 @app.route("/download_csv")
 def download_csv():
+    csv_filename = generate_csv_filename()
     data = []
     for roll_number, info in attendance.items():
         entry_time = info["entry"]
@@ -122,7 +126,7 @@ def download_csv():
     buffer.seek(0)
     
     return send_file(
-        buffer, as_attachment=True, download_name="attendance.csv", mimetype="text/csv"
+        buffer, as_attachment=True, download_name=csv_filename, mimetype="text/csv"
     )
 
 if __name__ == "__main__":
